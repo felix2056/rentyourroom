@@ -906,22 +906,22 @@
     <meta name="medium" content="image">
     <link rel="image_src" href="https://assets.spareroom.co.uk/img/spareroom/v4/icons/sr_og_icon.png">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SpareRoom - the Nigeria's No. 1 flatsharing site">
-    <meta property="og:site_name" content="SpareRoom">
+    <meta property="og:title" content="RentYourRoom - Nigeria's No. 1 flatsharing site">
+    <meta property="og:site_name" content="RentYourRoom">
     <meta property="fb:admins" content="713189111">
     <meta property="fb:app_id" content="5097577709">
     <meta property="og:description" content="Search for a room to rent or find a flatmate the fast, safe and easy way - we have thousands of ads all across the Nigeria.">
-    <meta property="og:url" content="https://www.spareroom.co.uk">
+    <meta property="og:url" content="https://www.rentyourroom.net">
     <meta property="og:image" content="/images/SpareRoom_sq_share.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
 
     <meta property="og:locale:alternate" content="en_GB">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="SpareRoomNigeria">
-    <meta name="twitter:creator" content="SpareRoomNigeria">
-    <meta name="twitter:title" content="SpareRoom - the Nigeria's No. 1 flatsharing site">
-    <meta name="twitter:description" content="Search for a room to rent or find a flatmate the fast, safe and easy way - we have thousands of ads all across the Nigeria.">
+    <meta name="twitter:site" content="RentYourRoom">
+    <meta name="twitter:creator" content="RentYourRoom">
+    <meta name="twitter:title" content="RentYourRoom - Nigeria's No. 1 flatsharing site">
+    <meta name="twitter:description" content="Search for a room to rent or find a flatmate the fast, safe and easy way - we have thousands of ads all across Nigeria.">
     <meta name="twitter:image" content="https://assets.spareroom.co.uk/img/logos/SpareRoom_sq_share.png?v=1">
 </head>
 
@@ -942,22 +942,28 @@
                     </div>
                     <div class="brand-header__middle-modals">
                         <div class="locale-choice" data-overlay-close-exempt="true">
-                            <button aria-expanded="false" aria-controls="countryChoiceNav" aria-label="You are on the Nigeria site. Change country." class="locale-choice__click" data-overlay-target="country-code" data-overlay-type="dropDown"><img src="/fonts/en-GB.svg" class="svg locale-choice__flag" alt="en-GB" width="21" height="15"><span class="locale-choice__code">Nigeria</span><i class="far fa-chevron-down locale-choice__caret-down"></i></button>
+                            <button aria-expanded="false" aria-controls="countryChoiceNav" aria-label="You are on the Nigeria site. Change country." class="locale-choice__click" data-overlay-target="country-code" data-overlay-type="dropDown">
+                                <img src="/fonts/NGN.svg" class="svg locale-choice__flag" alt="en-GB" width="21" height="15">
+                                <span class="locale-choice__code">Nigeria</span>
+                                <i class="far fa-chevron-down locale-choice__caret-down"></i>
+                            </button>
                             <aside id="countryChoiceNav" class="locale-choice__modal hidden-overlay" data-overlay-name="country-code">
                                 <form class="locale-choice__form" method="post" action="/" id="country_id_form">
                                     <fieldset>
                                         <legend class="locale-choice__legend">In which country are you looking?</legend>
-                                        <!--
-        --><label class="locale-choice__label"><input type="radio" name="country_id" value="1" data-website="https://www.spareroom.co.uk/" class="locale-choice__radio" checked>Nigeria</label>
-                                        <!--
-        --><label class="locale-choice__label"><input type="radio" name="country_id" value="2" data-website="https://www.spareroom.com/roommates" class="locale-choice__radio">US</label>
+                                        <label class="locale-choice__label">
+                                            <input type="radio" name="country_id" value="1" data-website="https://www.spareroom.co.uk/" class="locale-choice__radio" checked>Nigeria
+                                        </label>
+                                        <label class="locale-choice__label">
+                                            <input type="radio" name="country_id" value="2" data-website="https://www.spareroom.com/roommates" class="locale-choice__radio">US
+                                        </label>
                                     </fieldset>
-                                    <!--
-        --><button type="submit" class="button button--wide">Save</button>
+                                    <button type="submit" class="button button--wide">Save</button>
                                 </form>
                             </aside>
                         </div>
                     </div>
+
                     <div class="authentication-links authentication-links--buttons">
                         <div class="authentication-links__register-link">
                             <a class="button" href="{{ route('account.register') }}" id="registerButtonNav" title="Create an account">Register</a>
@@ -968,8 +974,9 @@
                     </div>
                     <div id="authenticationLinks" class="authentication-links">
                         <a id="registerLinkNav" class="authentication-links__register-link" href="{{ route('account.register') }}" title="Create an account">Register</a>
-                        <a id="loginLinkNav" href="{{ route('account.login') }}" class="authentication-links__sign-in-link show-user-auth-popup">Log
-                            in</a>
+                        <a id="loginLinkNav" href="{{ route('account.login') }}" class="authentication-links__sign-in-link show-user-auth-popup">
+                            Log in
+                        </a>
                     </div>
                 </div>
             </div>

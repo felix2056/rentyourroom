@@ -16,7 +16,7 @@
 
     <section class="hero">
         <header class="hero__header">
-            <h1 class="hero__heading">The Nigeria's Number 1 Flatshare Site</h1>
+            <h1 class="hero__heading">Nigeria's Number 1 Flatshare Site</h1>
             <h2 class="hero__sub-heading">83,036 rooms and flatmates available now across Nigeria</h2>
         </header>
 
