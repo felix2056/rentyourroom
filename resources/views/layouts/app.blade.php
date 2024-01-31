@@ -938,7 +938,14 @@
             <div class="brand-header" id="header">
                 <div class="brand-header__content">
                     <div class="brand-header__logo-wrapper">
-                        <a href="{{ route('index') }}" id="homeLogo" class="brand-header__logo-link" data-ga-event-category="Home Links" data-ga-event-action="clicked" data-ga-event-label="header-SR-logo"><img src="/fonts/SpareRoom_header_logo.svg" class="svg brand-header__logo" alt="SpareRoom Logo" width="248" height="51.66" importance="high"></a>
+                        <a href="{{ route('index') }}" id="homeLogo" class="brand-header__logo-link" data-ga-event-category="Home Links" data-ga-event-action="clicked" data-ga-event-label="header-SR-logo">
+                            @if (rand(0, 1) == 1)
+                                <img src="/images/logo/logo-white.png" class="svg brand-header__logo" alt="RentYourRoom Logo" width="248" height="51.66" importance="high">
+                            @else
+                                <img src="/images/logo/logo-green.png" class="svg brand-header__logo" alt="RentYourRoom Logo" width="248" height="51.66" importance="high">
+                            @endif
+                            {{-- <img src="/fonts/SpareRoom_header_logo.svg" class="svg brand-header__logo" alt="SpareRoom Logo" width="248" height="51.66" importance="high"> --}}
+                        </a>
                     </div>
                     <div class="brand-header__middle-modals">
                         <div class="locale-choice" data-overlay-close-exempt="true">

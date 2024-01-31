@@ -18,33 +18,28 @@
             </div>
             <div>&nbsp;</div>
         </div>
+
         <div class="grid-12-4">
             <div id="maincontent">
-
-
                 <div id="userAuth" class="auth auth-logon" data-user-type data-use-modal data-email data-pass data-log-in-from-url="&#47;" data-csrf-token="6fd25e68c49877941fbef7b9e8f17706bbd26994,4a428f1763c235e3a18321dba036f060e919a7b7,1706275299">
-
-
-
                     <div id="user_auth">
                         <div style="display: flex; justify-content: center; margin: 16px 0 0;">
                             <i class="far fa-spinner fa-pulse fa-4x fa-fw"></i>
                         </div>
                         <h3 style="text-align: center; margin-top: 16px; text-transform: capitalize; font-weight: 400; color: #5E5E5E">
-                            loading</h3>
+                            loading
+                        </h3>
                     </div>
                 </div>
-
             </div>
+            
             <aside>
-
-
                 <section class="panel panel-header-closed need-help">
                     <header>
                         <h3>Need any help?</h3>
                     </header>
-                    <div>
 
+                    <div>
                         <p class="need_help_contact">
                             Contact us by <a href="contact.pl" rel="nofollow" title="Contact us by email">email</a> or
                             <br>
@@ -58,15 +53,11 @@
                             Weekends: 10am &ndash; 7.30pm
                         </p>
 
-
-
-
                         <!-- Start of spareroom Zendesk Widget script -->
                         <script id="ze-snippet" defer src="js/snippet.js"> </script>
                         <!-- End of spareroom Zendesk Widget script -->
                     </div>
                 </section>
-
             </aside>
         </div>
     </div>
