@@ -33,6 +33,13 @@ Route::get('wanted_listing_step1', 'IndexController@wantedListingStep1')->name('
 Route::get('content/placeditadvert/listing-options/', 'IndexController@listingOptions')->name('listingOptions');
 Route::get('liverentfree', 'IndexController@liveRentFree')->name('liveRentFree');
 
-Route::get('my-account-index', 'AccountController@index')->name('account.index');
-Route::get('flatshare/reg', 'AccountController@register')->name('account.register');
-Route::get('logon', 'AccountController@login')->name('account.login');
+Route::group(['middleware' => 'guest'], function () {
+    Route::match(['get', 'post'], 'flatshare/reg', 'AccountController@register')->name('account.register');
+    Route::match(['get', 'post'], 'logon', 'AccountController@login')->name('account.login');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::match(['get', 'post'], 'flatshare/reg-2', 'AccountController@register2')->name('account.register2');
+    Route::get('flatshare/thank-you', 'AccountController@thankYou')->name('account.thankYou');
+    Route::get('my-account-index', 'AccountController@index')->name('account.index');
+});

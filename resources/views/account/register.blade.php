@@ -53,7 +53,8 @@
                                             <i class="fab fa-facebook"></i>
                                         </span><span class="button__text">Register using Facebook</span>
                                     </div>
-                                </a> </span>
+                                </a> 
+                            </span>
                             <p class="register_fb_notice">
                                 (we'll never post on your timeline without your permission)
                             </p>
@@ -69,43 +70,73 @@
                                 <div class="form_label">First name</div>
                                 <div class="form_inputs">
                                     <span class="form_input form_text">
-                                        <input type="text" name="first_name" size="25" maxlength="50" value autocomplete="given-name" required>
+                                        <input type="text" name="first_name" size="25" maxlength="50" autocomplete="given-name" required class="@error('first_name') is-invalid @enderror" value="{{ old('first_name') }}"
                                     </span>
                                 </div>
+                                @error('first_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+
                             <div class="form_row form_row_last_name">
                                 <div class="form_label">Last name</div>
                                 <div class="form_inputs">
                                     <span class="form_input form_text">
-                                        <input type="text" name="last_name" size="25" maxlength="50" value autocomplete="family-name" required>
+                                        <input type="text" name="last_name" size="25" maxlength="50" autocomplete="family-name" required class="@error('last_name') is-invalid @enderror" value="{{ old('last_name') }}"
                                     </span>
                                 </div>
+                                @error('last_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+
                             <div class="form_row form_row_email">
                                 <div class="form_label">Email address</div>
                                 <div class="form_inputs">
                                     <span class="form_input form_text">
-                                        <input type="email" name="email" size="30" maxlength="254" value id="emailfield" autocomplete="email" required>
+                                        <input type="email" name="email" size="30" maxlength="254" id="emailfield" autocomplete="email" required class="@error('email') is-invalid @enderror" value="{{ old('email') }}"
                                     </span>
                                 </div>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+
                             <div class="form_row form_row_password">
                                 <div class="form_label">Password</div>
                                 <div class="form_inputs">
                                     <span class="form_input form_text">
-                                        <input type="password" name="password" size="16" id="passwordinput" value required>
+                                        <input type="password" name="password" size="16" id="passwordinput" required class="@error('password') is-invalid @enderror">
                                     </span>
                                 </div>
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+
                             <div class="form_row form_row_password_confirm">
                                 <div class="form_label">Confirm password</div>
                                 <div class="form_inputs">
                                     <span class="form_input form_text">
-                                        <input type="password" name="password_again" size="16" value required>
+                                        <input type="password" name="password_confirmation" size="16" required class="@error('password_confirmation') is-invalid @enderror">
                                     </span>
                                 </div>
+                                @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </fieldset>
+
                         <fieldset class="form_row form_row_gender">
                             <div class="form_label">Gender</div>
                             <div class="form_inputs">
@@ -130,28 +161,42 @@
                                     <span class="tooltip_item"><i class="fas fa-info-circle"></i></span>
                                 </span>
                             </div>
+                            @error('gender')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </fieldset>
 
                         <fieldset class="form_row form_row_date_of_birth">
                             <div class="form_label">Date of birth</div>
                             <div class="form_inputs">
-                                <p class="form_row_dob_hint">You must be 18 or over to use SpareRoom</p>
+                                <p class="form_row_dob_hint">You must be 18 or over to use RentYourRoom</p>
 
-
-                                <label class="form_input_label"><span class="form_input_label_text">Day <span class="sr-only">of
-                                            birth</span></span><input type="text" maxlength="2" id="dofb_day" placeholder="DD" required autocomplete="bday-day">
+                                <label class="form_input_label">
+                                    <span class="form_input_label_text">Day <span class="sr-only">of birth</span></span>
+                                    <input name="dofb_day" type="text" name="day_of_birth" maxlength="2" id="dofb_day" placeholder="DD" required autocomplete="bday-day" class="@error('dofb_day') is-invalid @enderror" value="{{ old('dofb_day') }}">
                                 </label>
-                                <label class="form_input_label form_input_label--month"><span class="form_input_label_text">Month
-                                        <span class="sr-only">of birth</span></span><input type="text" maxlength="2" id="dofb_month" placeholder="MM" required autocomplete="bday-month"></label>
 
-                                <label class="form_input_label"><span class="form_input_label_text">Year <span class="sr-only">of
-                                            birth</span></span>
-                                    <input class="form_input_dob_year" type="text" maxlength="4" id="dofb_year" placeholder="YYYY" required autocomplete="bday-year">
+                                <label class="form_input_label form_input_label--month">
+                                    <span class="form_input_label_text">Month <span class="sr-only">of birth</span></span>
+                                    <input name="dofb_month" type="text" maxlength="2" id="dofb_month" placeholder="MM" required autocomplete="bday-month" class="@error('dofb_month') is-invalid @enderror" value="{{ old('dofb_month') }}">
                                 </label>
-                                <p aria-live="assertive" class="form_row_dob_invalid"></p>
-                                <input type="hidden" value="-" name="dofb_day">
+
+                                <label class="form_input_label">
+                                    <span class="form_input_label_text">Year <span class="sr-only">of birth</span></span>
+                                    <input name="dofb_year" class="form_input_dob_year" type="text" maxlength="4" id="dofb_year" placeholder="YYYY" required autocomplete="bday-year" class="@error('dofb_year') is-invalid @enderror" value="{{ old('dofb_year') }}">
+                                </label>
+
+                                @foreach ($errors->all() as $error)
+                                    @if (strpos($error, 'dofb') !== false)
+                                        <p aria-live="assertive" class="form_row_dob_invalid">{{ $error }}</p>
+                                    @endif
+                                @endforeach
+                                
+                                {{-- <input type="hidden" value="-" name="dofb_day">
                                 <input type="hidden" value="-" name="dofb_mon">
-                                <input type="hidden" value="-" name="dofb_year">
+                                <input type="hidden" value="-" name="dofb_year"> --}}
                             </div>
                         </fieldset>
 
@@ -159,15 +204,15 @@
                             <div class="form_label">Tick those which apply to you</div>
                             <div class="form_inputs">
                                 <label class="form_checkbox">
-                                    <input type="checkbox" name="usertype_new" value="lookingforashare">
+                                    <input type="checkbox" name="lookingforashare" value="lookingforashare">
                                     I am looking for a flat or house share
                                 </label>
                                 <label class="form_checkbox">
-                                    <input type="checkbox" name="usertype_new" value="haveashare">
+                                    <input type="checkbox" name="haveashare" value="haveashare">
                                     I have a flat or house share
                                 </label>
                                 <label class="form_checkbox">
-                                    <input type="checkbox" name="usertype_new" value="makeashare">
+                                    <input type="checkbox" name="makeashare" value="makeashare">
                                     I'd like to find people to form a new share
                                 </label>
                                 <input type="hidden" name="usertype_selection" value="manual">
@@ -179,22 +224,30 @@
                         <input type="hidden" name="emailtipsandpromotions" value="Y">
                         <input type="hidden" name="emailspeedflatmating" value="N">
                         <input type="hidden" name="emailfrom3rdparties" value="N">
+
                         <div class="form_row form_row_hear_about">
                             <div class="form_label">Where did you hear about us?</div>
                             <div class="form_inputs">
                                 <span class="form_input form_text">
-                                    <input type="text" name="where_heard" size="30" value>
+                                    <input type="text" name="where_heard" size="30" @error('where_heard') is-invalid @enderror value="{{ old('where_heard') }}">
                                 </span>
                             </div>
+                            @error('where_heard')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
+
                         <div class="form_row form_row_buttons">
                             <div class="form_input form_button">
-                                <button class="register-button button" id="registerbutton" type="submit" name="submit">Register
-                                    now</button>
+                                <button class="register-button button" id="registerbutton" type="submit" name="submit">
+                                    Register now
+                                </button>
                             </div>
                         </div>
-                        <div class="form_row form_row_agreement">
 
+                        <div class="form_row form_row_agreement">
                             <div class="form_inputs">
                                 <div class="form_input form_checkbox">
                                     <input type="hidden" name="inagreement" value="Y">
@@ -203,8 +256,14 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="grecaptcha-terms">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy
-                                Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.</p>
+
+                        <p class="grecaptcha-terms">
+                            This site is protected by reCAPTCHA and the Google
+                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                                Privacy Policy
+                            </a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+                        </p>
+
                         <input type="hidden" name="templateoveride" value>
                         <input type="hidden" name="event_id" value>
                         <input type="hidden" name="area_id" value>
@@ -224,17 +283,15 @@
                         <input type="hidden" name="sort_by" value>
                         <input type="hidden" name="flatshare_type" value>
                         <input type="hidden" name="action" value="newuser">
-                        <input type="hidden" name="csrf_token" value="5cd46801f5e47d71c09326d0901dbc7b20016a01,7944b97e52be3f067eaef0b2d8da3b1d72caa422,1706275299">
+                        @csrf
                         <input type="hidden" name="iso_language" value>
                     </div>
                     <div class="grecaptcha-container"></div>
                 </form>
             </div>
-
-
         </div>
-        <aside>
 
+        <aside>
             <div id="testimonials">
                 <blockquote>
                     <p class="quote">On day 2, I found 3 adverts of interest, met all three and by last night had found 3 very
@@ -254,15 +311,12 @@
                     privacy policy</a>.
             </p>
 
-
-
-
             <section class="panel panel-header-closed need-help">
                 <header>
                     <h3>Need any help?</h3>
                 </header>
-                <div>
 
+                <div>
                     <p class="need_help_contact">
                         Contact us by <a href="contact.pl" rel="nofollow" title="Contact us by email">email</a> or
                         <br>
@@ -276,15 +330,11 @@
                         Weekends: 10am &ndash; 7.30pm
                     </p>
 
-
-
-
                     <!-- Start of spareroom Zendesk Widget script -->
                     <script id="ze-snippet" defer src="/js/snippet.js"> </script>
                     <!-- End of spareroom Zendesk Widget script -->
                 </div>
             </section>
-
         </aside>
     </div>
 </main>
