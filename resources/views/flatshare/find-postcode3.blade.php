@@ -9,6 +9,11 @@ tenants/flatmates/roommates.')
 @section('css')
 <link rel="stylesheet" href="/css/77350867d40e0deebcb2156b43e65c1e.css">
 <link rel="stylesheet" href="/css/cdd74c0bc015c838cd67c1ccb7a26d8c.css">
+
+<style>
+    .form_error_message { color: red; }
+    .form_error { border-color: 2px solid red; }
+</style>
 @endsection
 
 @section('content')
@@ -19,38 +24,32 @@ tenants/flatmates/roommates.')
         </div>
         <div>&nbsp;</div>
     </div>
+
     <div class="grid-12-4">
         <div>
             <div class="block block_simple block_offered_listing">
                 <div class="block_header">
                     <h2>
-                        Step 1
-
-                        of 6
-
-
+                        Step 1 of 6
                     </h2>
                 </div>
+
                 <div class="block_content">
-
-
-
-
-
-
-
-
-
-
-                    <form action="/flatshare/find-postcode3.pl" method="GET" class="pl_step1" name="place_room_offered_st_1">
+                    @if ($errors->any())
+                    <p class="msg error">
+                        <strong>There was an error with your submission</strong>
+                        <br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </p>
+                    @endif
+                    <form method="POST" class="pl_step1" name="place_room_offered_st_1">
                         <fieldset>
                             <legend>
-
-
                                 Get started with your free ad
-
-
-
                             </legend>
 
                             <div class="form_row form_row_rooms_for_rent">
@@ -58,60 +57,46 @@ tenants/flatmates/roommates.')
                                     I have
                                 </div>
                                 <div class="form_inputs">
-                                    <span class="form_input form_select">
+                                    <span class="form_input form_select @error('rooms_for_rent') form_error @enderror">
                                         <select name="rooms_for_rent">
-                                            <option value="1">1 room for rent</option>
-                                            <option value="2">2 rooms for rent</option>
-                                            <option value="3">3 rooms for rent</option>
-                                            <option value="4">4 rooms for rent</option>
-                                            <option value="5">5 rooms for rent</option>
-                                            <option value="6">6 rooms for rent</option>
-                                            <option value="7">7 rooms for rent</option>
-                                            <option value="8">8 rooms for rent</option>
-                                            <option value="9">9 rooms for rent</option>
-                                            <option value="10">10 rooms for rent</option>
-                                            <option value="11">11 rooms for rent</option>
-                                            <option value="12">12 rooms for rent</option>
+                                            @foreach (range(1, 12) as $i)
+                                            <option value="{{ $i }}" @if(old('rooms_for_rent') == $i || $property['rooms_for_rent'] == $i) selected @endif>{{ $i }} room for rent</option>
+                                            @endforeach
                                         </select>
                                     </span>
+                                    @error('rooms_for_rent')
+                                    <span class="form_input form_error_message">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form_row form_row_property_type">
                                 <div class="form_label">
-
-
                                     Size and type of property
-
                                 </div>
-                                <div class="form_inputs">
-                                    <span class="form_input form_select">
-                                        <select name="rooms_in_property">
 
-                                            <option value="2">2 bed</option>
-                                            <option value="3">3 bed</option>
-                                            <option value="4">4 bed</option>
-                                            <option value="5">5 bed</option>
-                                            <option value="6">6 bed</option>
-                                            <option value="7">7 bed</option>
-                                            <option value="8">8 bed</option>
-                                            <option value="9">9 bed</option>
-                                            <option value="10">10 bed</option>
-                                            <option value="11">11 bed</option>
-                                            <option value="12">12 bed</option>
+                                <div class="form_inputs">
+                                    <span class="form_input form_select @error('rooms_in_property') form_error @enderror">
+                                        <select name="rooms_in_property">
+                                            @foreach (range(1, 12) as $i)
+                                            <option value="{{ $i }}" @if(old('rooms_in_property') == $i || $property['rooms_in_property'] == $i) selected @endif>{{ $i }} bed</option>
+                                            @endforeach
                                         </select>
                                     </span>
+                                    @error('rooms_in_property')
+                                    <span class="form_input form_error_message">{{ $message }}</span>
+                                    @enderror
+
                                     <span class="form_input form_select form_select_property_type">
                                         <select name="property_type">
-                                            <option value selected disabled>Select</option>
-                                            <option value="Flat">Flat/Apartment</option>
-                                            <option value="House">House</option>
-                                            <option value="Property">Property</option>
+                                            <option value disabled>Select</option>
+                                            <option value="Flat" @if(old('property_type') == 'Flat' || $property['property_type'] == 'Flat') selected @endif>Flat/Apartment</option>
+                                            <option value="House" @if(old('property_type') == 'House' || $property['property_type'] == 'House') selected @endif>House</option>
+                                            <option value="Property" @if(old('property_type') == 'Property' || $property['property_type'] == 'Property') selected @endif>Property</option>
                                         </select>
                                     </span>
                                 </div>
                             </div>
-
 
                             <div class="form_row form_row_occupants">
                                 <div class="form_label">
@@ -120,48 +105,47 @@ tenants/flatmates/roommates.')
                                 <div class="form_inputs">
                                     <span class="form_input form_select">
                                         <select name="occupants">
-                                            <option value="0">0</option>
-                                            <option value="1" selected>1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
-                                            <option value="10">10</option>
+                                            <option value disabled>Select</option>
+                                            @foreach (range(0, 10) as $i)
+                                            <option value="{{ $i }}" @if(old('occupants') == $i || $property['occupants'] == $i) selected @endif>{{ $i }}</option>
+                                            @endforeach
                                         </select>
                                     </span>
                                     occupants in the property
                                 </div>
                             </div>
 
-
-
-
                             <div id="postcodeWrapper" class="form_row form_row_postcode">
                                 <div class="form_label">
-
                                     <span class="form_label__text" data-test-content="Address of property">
                                         Postcode of property
                                     </span>
 
                                     <span class="form_hint">
-                                        (e.g. SE15 8PD)
+                                        (e.g. 101271)
                                     </span>
                                 </div>
+
                                 <div class="form_inputs">
                                     <div class="form_input form_text">
                                         <div id="address_lookup" class=" address_lookup" data-address-lookup-service-url="https://address-lookup-service.spareroom.co.uk/api/v1.0" data-address-lookup-service-key="acefa174a62368a592d60e5e8cf234d488d153e0" data-snippet data-retained-street data-retained-postcode data-show-example-address="true">
+                                            <div class="address_manual_form">
+                                                <div class="autosuggest__manual-field">
+                                                    <label class="autosuggest__manual-label" for="manual_address-line_2">Street name</label>
+                                                    <input type="text" name="street_name" id="manual_address-line_2" size="35" placeholder="e.g Bode Thomas Street" required="" value="{{ old('street_name') ?? $property['street_name'] }}" class="@error('street_name') form_error @enderror">
+                                                    @error('street_name')
+                                                    <span class="form_input form_error_message">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="autosuggest__manual-field">
+                                                    <label class="autosuggest__manual-label" for="manual_address-postcode">Postcode</label>
+                                                    <input type="text" name="postcode" id="manual_address-postcode" size="20" placeholder="e.g 101271" required value="{{ old('postcode') ?? $property['postcode'] }}" class="@error('postcode') form_error @enderror">
+                                                    @error('postcode')
+                                                    <span class="form_input form_error_message">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
-
-
-                                        <input type="hidden" name="address_snippet" value>
-                                        <input type="hidden" name="address_uuid" value>
-                                        <input type="hidden" name="manual_address_entry" value="0">
-                                        <input type="hidden" name="street_name" value>
-
                                     </div>
                                 </div>
                             </div>
@@ -170,50 +154,48 @@ tenants/flatmates/roommates.')
                                 <div class="form_label">
                                     I am a
                                 </div>
-
-
-
                                 <div class="form_inputs">
-
                                     <label class="form_input form_radio">
-                                        <input type="radio" name="advertiser_role" value="live in landlord">
+                                        <input type="radio" name="advertiser_role" value="liveInLandlord" @if(old('advertiser_role') == 'liveInLandlord' || $property['advertiser_role'] == 'liveInLandlord') checked @endif>
                                         Live in landlord
                                         <span class="form_hint">(I own the property and live there)</span>
                                     </label>
                                     <br>
 
                                     <label class="form_input form_radio">
-                                        <input type="radio" name="advertiser_role" value="live out landlord">
+                                        <input type="radio" name="advertiser_role" value="liveOutLandlord" @if(old('advertiser_role') == 'liveOutLandlord' || $property['advertiser_role'] == 'liveOutLandlord') checked @endif>
                                         Live out landlord
                                         <span class="form_hint">(I own the property but don't live there)</span>
                                     </label>
                                     <br>
 
                                     <label class="form_input form_radio">
-                                        <input type="radio" name="advertiser_role" value="current flatmate">
+                                        <input type="radio" name="advertiser_role" value="currentTenant" @if(old('advertiser_role') == 'currentTenant' || $property['advertiser_role'] == 'currentTenant') checked @endif>
                                         Current tenant/flatmate
                                         <span class="form_hint">(I am living in the property)</span>
                                     </label>
+
                                     <br>
 
                                     <label class="form_input form_radio">
-                                        <input type="radio" name="advertiser_role" value="agent">
+                                        <input type="radio" name="advertiser_role" value="agent" @if(old('advertiser_role') == 'agent' || $property['advertiser_role'] == 'agent') checked @endif>
                                         Agent
                                         <span class="form_hint">(I am advertising on a landlord's behalf)</span>
                                     </label>
+
                                     <br>
 
                                     <label class="form_input form_radio">
-                                        <input type="radio" name="advertiser_role" value="former flatmate">
+                                        <input type="radio" name="advertiser_role" value="formerFlatmate" @if(old('advertiser_role') == 'formerFlatmate' || $property['advertiser_role'] == 'formerFlatmate') checked @endif>
                                         Former flatmate
                                         <span class="form_hint">(I am moving out and need someone to replace me)</span>
                                     </label>
-                                    <br>
 
+                                    <br>
 
                                     <div id="advertiser_role_other" style="display:none;">
                                         <label class="form_input form_radio">
-                                            <input type="radio" name="advertiser_role" value="other">
+                                            <input type="radio" name="advertiser_role" value="other" @if(old('advertiser_role') == 'other' || $property['advertiser_role'] == 'other') checked @endif>
                                             other:
                                             <span class="form_hint"><input type="text" name="advertiser_role_other" value></span>
                                         </label>
@@ -222,10 +204,7 @@ tenants/flatmates/roommates.')
                                 </div>
                             </div>
 
-
                             <div class="step1__button-wrapper">
-
-
                                 <div class="step1__facebook-button-wrapper" style="display:none">
                                     <a class="button button--facebook button--wide" id="fb_login" title="Connect with Facebook" data-facebook-connect data-fb-button-disabled="true" href="#">
                                         <div class="button__content">
@@ -235,18 +214,18 @@ tenants/flatmates/roommates.')
                                         </div>
                                     </a>
                                 </div>
+
                                 <div class="step1__email-button-wrapper" style="display:none">
                                     <button type="button" class="button button--link">Continue with email</button>
                                 </div>
+
                                 <div class="form_row form_row_email">
                                     <div class="form_label">
-
-                                        My email address is<span class="star">*</span>
-
+                                        My email address is <span class="star">*</span>
                                     </div>
                                     <div class="form_inputs">
                                         <span class="form_input form_text">
-                                            <input class="step-1__email-input" type="email" name="youremail" value>
+                                            <input class="step-1__email-input" type="email" name="youremail" value="{{ old('youremail') ?? $property['youremail'] }}" required>
                                         </span>
                                         <input type="hidden" name="emailrequested" value="1">
                                         <div class="form_hint">
@@ -254,7 +233,6 @@ tenants/flatmates/roommates.')
                                         </div>
                                     </div>
                                 </div>
-
 
                                 <div class="form_row step1__continue-button-wrapper">
                                     <div class="form_label"></div>
@@ -266,28 +244,21 @@ tenants/flatmates/roommates.')
                                         <input type="hidden" name="desc" value="Free Advert">
                                         <input type="hidden" name="M_context" value="28">
                                         <input type="hidden" name="information" value="full">
-
                                         <input type="hidden" name="current_step" value="theproperty">
-
-                                        <input type="hidden" name="resubmitblock" value="1706275299">
-                                        <div class="form_input form_button"><button class="button" id="continueButton" type="submit" name="submit">Continue</button> </div>
+                                        @csrf
+                                        <div class="form_input form_button">
+                                            <button class="button" id="continueButton" type="submit" name="submit">Continue</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
                     </form>
-
-
-
-
-
                 </div>
             </div>
         </div>
+
         <aside>
-
-
-
             <section class="panel panel-header-closed need-help">
                 <header>
                     <h3>Need any help?</h3>
@@ -307,15 +278,11 @@ tenants/flatmates/roommates.')
                         Weekends: 10am &ndash; 7.30pm
                     </p>
 
-
-
-
                     <!-- Start of spareroom Zendesk Widget script -->
                     <script id="ze-snippet" defer src="/js/snippet.js"> </script>
                     <!-- End of spareroom Zendesk Widget script -->
                 </div>
             </section>
-
         </aside>
     </div>
 
@@ -337,6 +304,24 @@ tenants/flatmates/roommates.')
 
 @section('js')
 <script>
+    SR.init({
+        siteId: 1
+        , domainId: 1
+        , locale: 'en-GB'
+        , correctUrl: 'www.spareroom.co.uk'
+        , staticServer: 'assets.spareroom.co.uk'
+        , appSubdir: 'flatshare'
+        , googleMapsClientId: 'gme-flatshareltd'
+        , gaCategoryMapEvents: 'Google Maps (09 -11-16)'
+        , loginReturnPath: '\x2Fflatshare\x2Ffind\x2Dpostcode3\x2Epl\x3Fdesc\x3DFree\x2BAdvert\x26amount\x3D0\x26scp\x3DN'
+        , siteMobile: false
+        , facebook: {
+            appLocale: 'en_GB'
+        , }
+    });
+
+    SR.localisations = {};
+
     SR.facebookConnect.setSettings({
         passthrough: {
             usertype_new: 'haveashare'
@@ -344,6 +329,7 @@ tenants/flatmates/roommates.')
     });
 
 </script>
+
 <script>
     _sr.page.post_ad = {
         address_label: "Address of property"

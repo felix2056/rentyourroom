@@ -84,8 +84,11 @@
                         <div class="search-widget__advanced-search-link">
                             <a href="{{ route('flatshare.search') }}">Advanced search</a>
                         </div>
+
                     </div>
                 </section>
+
+
             </form>
 
 
@@ -105,41 +108,32 @@
                     </div>
                 </form>
             </div>
+
+
         </aside>
-
         <div id="maincontent" class="grid-4">
-            <div>
-                <h2 class="countryheader">Nigeria</h2>
-                <h3><a href="{{ route('flatshare.state', 'lagos') }}">Lagos flatshare</a></h3>
-                <ul class="bulletlist">
-                    @php
-                        $totalRooms = 0;
-                        $totalRoommates = 0;
-                        $totalProperties = 0;
 
-                        foreach (\App\Models\City::where('state', 'lagos')->get() as $city) {
-                            $totalRooms += $city->rooms_count;
-                            $totalRoommates += $city->roommates_count;
-                            $totalProperties += $city->properties->count();
-                        }
-                    @endphp
+            <div>
+                <h2 class="countryheader">England</h2>
+                <h3><a href="birmingham.html">Birmingham flatshare</a></h3>
+                <ul class="bulletlist">
 
                     <li>
-                        <a href="{{ route('flatshare.neighbourhood', ['lagos', \App\Models\City::where('state', 'lagos')->first()->slug]) }}">
-                            {{ number_format($totalRooms) }}
+                        <a href="birmingham_4.html">
+                            1,693
                             rooms to rent in
-                            {{ number_format($totalProperties) }}
+                            1,109
                             flatshares &amp; house shares
                         </a>
                     </li>
                     <li>
                         <a href="birmingham_6.html">
-                            {{ number_format($totalRoommates) }}
+                            961
                             flatmates / roommates
                         </a>
                     </li>
-                </ul>
 
+                </ul>
                 <h3><a href="bristol.html">Bristol flatshare</a></h3>
                 <ul class="bulletlist">
 
@@ -159,7 +153,6 @@
                     </li>
 
                 </ul>
-
                 <h3><a href="leeds.html">Leeds flatshare</a></h3>
                 <ul class="bulletlist">
 
@@ -179,7 +172,6 @@
                     </li>
 
                 </ul>
-
                 <h3><a href="london.html">Nigeria flatshare</a></h3>
                 <ul class="bulletlist">
 
@@ -199,7 +191,6 @@
                     </li>
 
                 </ul>
-
                 <ul class="bulletlist">
                     <li><a href="central_london_2.html">Central London</a>
                         <ul>
@@ -342,7 +333,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 <h3><a href="manchester.html">Manchester flatshare</a></h3>
                 <ul class="bulletlist">
                     <li><a href="bolton_2.html">Bolton</a>
@@ -466,7 +456,6 @@
                         </ul>
                     </li>
                 </ul>
-
                 <h4><a href="bath.html">Bath</a></h4>
                 <ul class="bulletlist">
 
@@ -2433,7 +2422,6 @@
                     <li><a href="{{ route('browse.state', 'yobe') }}" title="Yobe flatshare house share and flatmates">Yobe</a></li>
                     <li><a href="{{ route('browse.state', 'zamfara') }}" title="Zamfara flatshare house share and flatmates">Zamfara</a></li>
                 </ul>
-                
                 <h2 class="countryheader">Flatshares Worldwide
                     <h3><a href="https://www.spareroom.com" title="Rooms for Rent in the USA">United States</a></h3>
                     <ul>
@@ -2448,8 +2436,8 @@
                                 rent in the rest of the US</a></li>
                     </ul>
 
+
                     <h3><a href="https://www.appartager.com" title="Colocation France">France</a></h3>
-                    
                     <ul>
                         <li><a href="https://www.appartager.com/colocations/paris"
                                 title="Rooms for Rent in Paris">Colocation Paris</a></li>

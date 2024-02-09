@@ -30,7 +30,7 @@
             <h2 class>What do you want to advertise?</h2>
             <section class="options__container">
                 <div class="options__wrapper">
-                    <a id="optionsWrapperRoom" href="listing-options.html" class="options__item">
+                    <a id="optionsWrapperRoom" href="{{ route('listingOptions') }}" class="options__item">
                         <p class="options__image">
                             <img class="options__img" src="/images/room_only.png" alt="Rooms to Rent">
                         </p>
@@ -105,36 +105,4 @@
 
 @section('js')
 <script src="/js/e0c43c978ea516935f9ded8af409ac54.js"></script>
-<script src="/js/6f30ada23b82e07b93ee29b7dce25b42.js"></script>
-<script>
-    SR.init({
-        siteId: 1
-        , domainId: 1
-        , locale: 'en-GB'
-        , correctUrl: 'www.spareroom.co.uk'
-        , staticServer: 'assets.spareroom.co.uk'
-        , appSubdir: 'flatshare'
-        , googleMapsClientId: 'gme-flatshareltd'
-        , gaCategoryMapEvents: 'Google Maps (09 -11-16)'
-        , loginReturnPath: '\x2Fcontent\x2Fplaceditadvert\x2Fchoose\x2Dsection\x2Dnew\x2F'
-        , siteMobile: false
-        , facebook: {
-            appLocale: 'en_GB'
-        , }
-    });
-
-    SR.localisations = {};
-
-    SR.facebookConnect.setSettings({
-        appConfig: {
-            appId: '5097577709'
-        }
-    });
-
-    SR.tracking.init();
-    SR.checkCookies.init();
-    SR.saveSearchToLocalStorage.init();
-    SR.spareroom.init();
-
-</script>
 @endsection

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->date('date_available')->nullable();
             $table->integer('min_term')->nullable();
             $table->integer('max_term')->nullable();
-            $table->enum('occupation', ['professional', 'student', 'other'])->nullable();
+            $table->enum('occupation', ['Professional', 'Student', 'Other'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

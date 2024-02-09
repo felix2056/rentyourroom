@@ -14,20 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'IndexController@index')->name('index');
+
 Route::get('browse', 'IndexController@browse')->name('browse');
+Route::get('browse/states/{state}', 'IndexController@browseState')->name('browse.state');
+
 Route::get('choose-section-new', 'IndexController@postAd')->name('postAd');
 Route::get('about-us/about-spareroom/', 'IndexController@aboutSpareroom')->name('aboutSpareroom');
 Route::get('info-and-advice', 'IndexController@infoAndAdvice')->name('infoAndAdvice');
 Route::get('earn', 'IndexController@earn')->name('earn');
 
-Route::get('london/search-by-location', 'IndexController@searchByLocation')->name('searchByLocation');
-Route::get('london/search-by-commute-time', 'IndexController@searchByCommuteTime')->name('searchByCommuteTime');
-Route::get('london/search-by-travel-zone', 'IndexController@searchByTravelZone')->name('searchByTravelZone');
-Route::get('london/search-by-tube-line', 'IndexController@searchByTubeLine')->name('searchByTubeLine');
+Route::get('nigeria/search-by-location', 'IndexController@searchByLocation')->name('searchByLocation');
+Route::get('nigeria/search-by-commute-time', 'IndexController@searchByCommuteTime')->name('searchByCommuteTime');
+Route::get('nigeria/search-by-travel-zone', 'IndexController@searchByTravelZone')->name('searchByTravelZone');
+Route::get('nigeria/search-by-tube-line', 'IndexController@searchByTubeLine')->name('searchByTubeLine');
 
-Route::get('flatshare/search', 'IndexController@search')->name('search');
-Route::get('flatshare/where_to_live_wizard', 'IndexController@whereToLiveWizard')->name('whereToLiveWizard');
-Route::get('flatshare/find-postcode3', 'IndexController@findPostcode3')->name('findPostcode3');
+Route::group(['prefix' => 'flatshare'], function () {
+    Route::get('/state/{state}', 'PropertyController@state')->name('flatshare.state');
+    Route::get('/state/{state}/{neighbourhood}', 'PropertyController@neighbourhood')->name('flatshare.neighbourhood');
+    Route::get('/state/{state}/{neighbourhood}/{slug}', 'PropertyController@show')->name('flatshare.show');
+    
+    Route::get('search', 'PropertyController@search')->name('flatshare.search');
+    Route::get('where_to_live_wizard', 'PropertyController@whereToLiveWizard')->name('flatshare.whereToLiveWizard');
+
+    Route::match(['get', 'post'], 'find-postcode3', 'PropertyController@findPostcode3')->name('flatshare.findPostcode3');
+    Route::match(['get', 'post'], 'offered-advert3', 'PropertyController@offeredAdvert3')->name('flatshare.offeredAdvert3');
+    Route::match(['get', 'post'], 'offered-advert4', 'PropertyController@offeredAdvert4')->name('flatshare.offeredAdvert4');
+    Route::match(['get', 'post'], 'offered-advert5', 'PropertyController@offeredAdvert5')->name('flatshare.offeredAdvert5');
+    Route::match(['get', 'post'], 'offered-advert6', 'PropertyController@offeredAdvert6')->name('flatshare.offeredAdvert6');
+    Route::match(['get', 'post'], 'offered-advert7', 'PropertyController@offeredAdvert7')->name('flatshare.offeredAdvert7');
+});
 
 Route::get('wanted_listing_step1', 'IndexController@wantedListingStep1')->name('wantedListingStep1');
 Route::get('content/placeditadvert/listing-options/', 'IndexController@listingOptions')->name('listingOptions');

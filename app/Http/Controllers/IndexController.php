@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property;
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
@@ -14,6 +18,21 @@ class IndexController extends Controller
     public function browse()
     {
         return view('browse');
+    }
+
+    public function browseState($state)
+    {
+        return view('browse-state', compact('state'));
+    }
+
+    public function browseCity($state, $city)
+    {
+        return view('browse-city', compact('state', 'city'));
+    }
+
+    public function browseNeighbourhood($state, $city, $neighbourhood)
+    {
+        return view('browse-neighbourhood', compact('state', 'city', 'neighbourhood'));
     }
 
     public function postAd()
@@ -36,11 +55,6 @@ class IndexController extends Controller
         return view('earn');
     }
 
-    public function search()
-    {
-        return view('flatshare.search');
-    }
-
     public function searchByLocation()
     {
         return view('london.search-by-location');
@@ -59,16 +73,6 @@ class IndexController extends Controller
     public function searchByTubeLine()
     {
         return view('london.search-by-tube-line');
-    }
-
-    public function whereToLiveWizard()
-    {
-        return view('flatshare.where-to-live-wizard');
-    }
-
-    public function findPostcode3()
-    {
-        return view('flatshare.find-postcode3');
     }
 
     public function wantedListingStep1()

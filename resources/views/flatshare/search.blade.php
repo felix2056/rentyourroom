@@ -43,10 +43,10 @@
 
         <div class="panel-tab">
           <a href="search_2.pl" class="panel-tab__tab ">Basic search</a>
-          <a href="{{ route('search') }}" class="panel-tab__tab  tab-active">Advanced search</a>
+          <a href="{{ route('flatshare.search') }}" class="panel-tab__tab  tab-active">Advanced search</a>
         </div>
 
-        <form class=" " action="{{ route('search') }}" method="GET" name="search_advanced" id="pageSearchForm"
+        <form class=" " action="{{ route('flatshare.search') }}" method="GET" name="search_advanced" id="pageSearchForm"
           data-search-form>
 
 
@@ -204,7 +204,7 @@
                 </span>
                 mins commute from
                 <span class="form_input form_select">
-                  <select name="station_id">
+                  <select name="station">
                     <option value SELECTED>Choose station</option>
 
                     <option value="ABBEYROAD">Abbey Road</option>
@@ -1317,7 +1317,7 @@
 
                   </span>
                   <span class="form_select">
-                    <select name="mon_avail" id="mon_avail">\n<option value="01" SELECTED>01
+                    <select name="month_avail" id="month_avail">\n<option value="01" SELECTED>01
                       </option>
                       <option value="02">02
                       </option>
@@ -1651,7 +1651,7 @@
           (function ($) {
             localStorage.removeItem('availableSearch');
             $('[type="submit"]').on('click', function () {
-              localStorage.setItem('availableSearch', $('[name="year_avail"] option:selected').val() + '-' + $('[name="mon_avail"] option:selected').val() + '-' + $('[name="day_avail"] option:selected').val());
+              localStorage.setItem('availableSearch', $('[name="year_avail"] option:selected').val() + '-' + $('[name="month_avail"] option:selected').val() + '-' + $('[name="day_avail"] option:selected').val());
             });
           })(jQuery);
         </script>

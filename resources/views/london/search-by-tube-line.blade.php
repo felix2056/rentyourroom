@@ -21,7 +21,7 @@
             <a href="{{ route('searchByTubeLine') }}" id="tube-line" data-title="Search by tube line">Tube line</a>
         </nav>
         <div class="searching-form">
-            <form action="{{ route('search') }}" method="POST" class="form-content" id="tube-line-form">
+            <form action="{{ route('flatshare.search') }}" method="POST" class="form-content" id="tube-line-form">
                 <fieldset>
 
 
@@ -57,7 +57,7 @@
                 <button class="button button--large submit-form" data-submit="tube-line" type="submit" name="submit">Find
                     flatshares</button>
             </form>
-            <form action="{{ route('search') }}" method="POST" class="form-content" id="commute-time-form">
+            <form action="{{ route('flatshare.search') }}" method="POST" class="form-content" id="commute-time-form">
                 <fieldset>
 
                     <label>
@@ -71,7 +71,7 @@
                         </select>minutes,
                     </label>
                     <label>
-                        from station<select name="station_id" required>
+                        from station<select name="station" required>
                             <option value SELECTED>Choose station</option>
 
                             <option value="ABBEYROAD">Abbey Road</option>
@@ -814,7 +814,7 @@
                     <input type="hidden" name="action" value="search">
                 </fieldset><button class="button button--large submit-form" data-submit="commute-time" type="submit" name="submit">Find flatshares</button>
             </form>
-            <form action="{{ route('search') }}" method="POST" class="form-content" id="travel-zone-form">
+            <form action="{{ route('flatshare.search') }}" method="POST" class="form-content" id="travel-zone-form">
                 <fieldset>
 
 
@@ -851,7 +851,7 @@
                 <button class="button button--large submit-form" data-submit="travel-zone" type="submit" name="submit">Find
                     flatshares</button>
             </form>
-            <form action="{{ route('search') }}" method="POST" class="form-content" id="location-form">
+            <form action="{{ route('flatshare.search') }}" method="POST" class="form-content" id="location-form">
                 <fieldset>
 
                     <label for="search_by_location_field">
@@ -867,8 +867,8 @@
                 </fieldset>
                 <button class="button button--large submit-form" data-submit="location" type="submit" name="submit">Search</button>
             </form>
-            <a class="complementary-link" href="{{ route('search') }}">Advanced search</a>
-            <p class="complementary-link"><strong>Or try our: </strong><a href="{{ route('whereToLiveWizard') }}">Where to Live
+            <a class="complementary-link" href="{{ route('flatshare.search') }}">Advanced search</a>
+            <p class="complementary-link"><strong>Or try our: </strong><a href="{{ route('flatshare.whereToLiveWizard') }}">Where to Live
                     Wizard</a></p>
         </div>
     </section>

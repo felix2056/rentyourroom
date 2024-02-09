@@ -18,10 +18,10 @@
             </div>
             <div class="col col_last" id="social_buttons">
                 <div id="facebook_like_button">
-                    <iframe src="//www.facebook.com/v3.2/plugins/like.php?href=https%3A%2F%2Fwww.spareroom.co.uk%2Fflatshare%2F{{ route('whereToLiveWizard') }}&amp;send=false&amp;layout=button_count&amp;width=94&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=5097577709" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:94px; height:21px;" allowTransparency="true"></iframe>
+                    <iframe src="//www.facebook.com/v3.2/plugins/like.php?href=https%3A%2F%2Fwww.spareroom.co.uk%2Fflatshare%2F{{ route('flatshare.whereToLiveWizard') }}&amp;send=false&amp;layout=button_count&amp;width=94&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=5097577709" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:94px; height:21px;" allowTransparency="true"></iframe>
                 </div>
                 <div id="tweet_button">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.spareroom.co.uk/flatshare/{{ route('whereToLiveWizard') }}" data-count="none">Tweet</a>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.spareroom.co.uk/flatshare/{{ route('flatshare.whereToLiveWizard') }}" data-count="none">Tweet</a>
                     <script>
                         ! function(d, s, id) {
                             var js, fjs = d.getElementsByTagName(s)[0];
@@ -55,7 +55,7 @@
                 <strong>Please select between 2 and 5 characteristics</strong>
             </p>
 
-            <form action="/flatshare/{{ route('whereToLiveWizard') }}" method="post" class="tagger">
+            <form action="/flatshare/{{ route('flatshare.whereToLiveWizard') }}" method="post" class="tagger">
                 <div id="qualities" class="tagger_tags wtlw-qualities">
 
                     <p class="tagger_tag tag_id_1">

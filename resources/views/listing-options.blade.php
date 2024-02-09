@@ -32,8 +32,6 @@
 
 @section('content')
 <main id="spareroom" class="wrap wrap--main">
-
-
     <div class="grid-4-8-4 " id="mainheader">
         <div>&nbsp;</div>
         <div>
@@ -44,11 +42,7 @@
         <div>&nbsp;</div>
     </div>
 
-
-
-
     <div class="grid-4-8-4">
-
         <aside>
             <div id="testimonials">
                 <blockquote class="testimonial">
@@ -60,13 +54,9 @@
         </aside>
 
         <div id="maincontent">
-
             <link rel="stylesheet" href="/css/index.316cd90e02cd52831bf1.css">
 
-
             <div class="listing_options">
-
-
                 <h2>What are your options?</h2>
                 <table class="comparison-table">
                     <tr class="comparison-table__row">
@@ -120,9 +110,9 @@
                     </tr>
                 </table>
                 <div class="buttons-ads">
-                    <a class="button button--secondary buttons-ads__free-ad" id="postFreeAd" href="find-postcode3.pl">Post a
+                    <a class="button button--secondary buttons-ads__free-ad" id="postFreeAd" href="{{ route('flatshare.findPostcode3') }}">Post a
                         free ad</a>
-                    <a class="button buttons-ads__bold-ad" id="postBoldAd" href="find-postcode3_1.pl">Post a Bold ad</a>
+                    <a class="button buttons-ads__bold-ad" id="postBoldAd" href="{{ route('flatshare.findPostcode3') }}">Post a Bold ad</a>
                 </div>
 
 

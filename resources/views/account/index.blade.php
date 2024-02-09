@@ -28,7 +28,7 @@
 
 
 
-            <form action="{{ route('search') }}" method="GET" id="filterForm" name="search-filter" class="search-widget-form" data-search-form>
+            <form action="{{ route('flatshare.search') }}" method="GET" id="filterForm" name="search-filter" class="search-widget-form" data-search-form>
                 <section id="searchWidget" class="panel panel-header-closed search-widget panel-standard">
                     <header>
                         <h3 id="search-for-title">Search</h3>
@@ -67,7 +67,7 @@
 
                         <input id="submitButton" type="submit" class="button button--wide" value="Search">
                         <div class="search-widget__advanced-search-link">
-                            <a href="{{ route('search') }}">Advanced search</a>
+                            <a href="{{ route('flatshare.search') }}">Advanced search</a>
                         </div>
 
                     </div>

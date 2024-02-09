@@ -490,5 +490,4 @@
 
 @section('js')
 <script src="/js/e0c43c978ea516935f9ded8af409ac54.js"></script>
-<script src="/js/6f30ada23b82e07b93ee29b7dce25b42.js"></script>
 @endsection

@@ -324,6 +324,12 @@
     </script>
 
     <script nomodule src="/js/polyfill.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script>
+        window.jQuery || document.write("<script src='\/\/assets.spareroom.co.uk\/js\/common\/jquery\/jquery-1.12.0.min.js'><\/script>");
+    </script>
+    <script>jQuery.noConflict();</script>
     
     <script>
         if (typeof NodeList.prototype.forEach !== "function") {
@@ -993,7 +999,7 @@
                 <div class="nav-bar__menus">
                     <ul class="nav-bar__menu nav-bar__menu--left">
                         <li class="nav-bar__menu-item">
-                            <a href="{{ route('search') }}" id="searchNav" title="Search SpareRoom for a property or tenant" class="nav-bar__link nav-bar__link--search">
+                            <a href="{{ route('flatshare.search') }}" id="searchNav" title="Search SpareRoom for a property or tenant" class="nav-bar__link nav-bar__link--search">
                                 <span class="nav-bar__link-text">Search</span>
                             </a>
                         </li>
@@ -1248,7 +1254,6 @@
     <script src="/js/6f30ada23b82e07b93ee29b7dce25b42.js"></script>
     <script>
         SR.init({
-
         siteId: 1,
         domainId: 1,
         locale: 'en-GB',

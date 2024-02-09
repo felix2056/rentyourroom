@@ -20,7 +20,7 @@
             <h2 class="hero__sub-heading">83,036 rooms and flatmates available now across Nigeria</h2>
         </header>
 
-        <form class="landing-search__form" method="GET" action="{{ route('search') }}" id="searchForm" data-search-form>
+        <form class="landing-search__form" method="GET" action="{{ route('flatshare.search') }}" id="searchForm" data-search-form>
             <div class="landing-search__search-function-wrapper">
                 <div class="landing-search__input-wrapper">
                     <label for="search_by_location_field" class="magnifierIcon">
@@ -30,7 +30,7 @@
                     <input type="hidden" id="hidden_search" name="search" value>
                     <div class="landing-search__action-buttons">
                         <button type="reset" name="reset" class="reset" tabindex="-1" aria-label="search reset button"><label for="search_by_location_field" aria-hidden="true" class="far fa-times-circle"></label></button>
-                        <button type="button" class="markerIcon" id="getLocation" aria-label="Search using your location">
+                        <button type="button" class="markerIcon" id="getAddress" aria-label="Search using your location">
                             <i class="far fa-crosshairs"></i>
                         </button>
                     </div>
@@ -58,28 +58,28 @@
                 </div>
             </div>
             <div class="landing-search__advanced-search-wrapper">
-                <a class="landing-search__advanced-search" href="{{ route('search') }}">Advanced search</a>
+                <a class="landing-search__advanced-search" href="{{ route('flatshare.search') }}">Advanced search</a>
             </div>
         </form>
 
         <div class="hero__image-wrapper">
             <picture class="hero__image-picture">
-                <source media="(min-width: 769px)" type="image/webp" srcset="/images/banner/1.webp">
-                <source media="(min-width: 676px) and (max-width: 768px)" type="image/webp" srcset="/images/banner/1banner-768.webp">
-                <source media="(min-width: 481px) and (max-width: 675px)" type="image/webp" srcset="/images/banner/1banner-675.webp">
-                <source media="(min-width: 416px) and (max-width: 480px)" type="image/webp" srcset="/images/banner/1banner-480.webp">
-                <source media="(min-width: 376px) and (max-width: 415px)" type="image/webp" srcset="/images/banner/1banner-415.webp">
-                <source media="(min-width: 321px) and (max-width: 375px)" type="image/webp" srcset="/images/banner/1banner-375.webp">
-                <source media="(max-width: 320px)" type="image/webp" srcset="/images/banner/1banner-320.webp">
-                <source media="(min-width: 769px)" type="image/jpeg" srcset="/images/banner/1banner-966.webp">
-                <source media="(min-width: 769px)" type="image/webp" srcset="/images/banner/1.webp">
-                <source media="(min-width: 676px) and (max-width: 768px)" type="image/webp" srcset="/images/banner/1banner-768.jpg">
-                <source media="(min-width: 481px) and (max-width: 675px)" type="image/webp" srcset="/images/banner/1banner-675.jpg">
-                <source media="(min-width: 416px) and (max-width: 480px)" type="image/webp" srcset="/images/banner/1banner-480.jpg">
-                <source media="(min-width: 376px) and (max-width: 415px)" type="image/webp" srcset="/images/banner/1banner-415.jpg">
-                <source media="(min-width: 321px) and (max-width: 375px)" type="image/webp" srcset="/images/banner/1banner-375.jpg">
-                <source media="(max-width: 320px)" type="image/jpeg" srcset="/images/banner/1banner-320.jpg">
-                <img class="hero__image" src="/images/banner/1banner-320.jpg" alt importance="high">
+                <source media="(min-width: 769px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 676px) and (max-width: 768px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 481px) and (max-width: 675px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 416px) and (max-width: 480px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 376px) and (max-width: 415px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 321px) and (max-width: 375px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(max-width: 320px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 769px)" type="image/jpeg" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 769px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 676px) and (max-width: 768px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 481px) and (max-width: 675px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 416px) and (max-width: 480px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 376px) and (max-width: 415px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(min-width: 321px) and (max-width: 375px)" type="image/webp" srcset="/images/banner/1banner-960.png">
+                <source media="(max-width: 320px)" type="image/jpeg" srcset="/images/banner/1banner-960.png">
+                <img class="hero__image" src="/images/banner/1banner-3960.png" alt importance="high">
             </picture>
         </div>
     </section>
@@ -107,7 +107,7 @@
                 <div class="search-locations__option">
                     <b>Or try our: </b>
                     <div class="search-locations__link-wrap">
-                        <a href="{{ route('whereToLiveWizard') }}" title="Find the right place to live based on criteria that is important to you">Where to Live Wizard</a>
+                        <a href="{{ route('flatshare.whereToLiveWizard') }}" title="Find the right place to live based on criteria that is important to you">Where to Live Wizard</a>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                         <a id="findOutMore" href="{{ route('listingOptions') }}">Find out more</a>
                     </p>
                     <div>
-                        <a class="button button--large" id="offeredButton" href="{{ route('findPostcode3', ['desc' => 'Free Advert', 'amount' => '0']) }}">
+                        <a class="button button--large" id="offeredButton" href="{{ route('flatshare.findPostcode3', ['desc' => 'Free Advert', 'amount' => '0']) }}">
                             Post a free ad
                         </a>
                     </div>
@@ -233,4 +233,57 @@
 
 @section('js')
 <script src="/js/home.4b8f2423631b37c2ade9.js" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKluQknDjjGQpfx9btogz9wH_hW-sbsY&v=3.exp&sensor=false&callback=initialize"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get location
+        var getAddressButton = document.getElementById('getAddress');
+        var searchByLocationField = document.getElementById('search_by_location_field');
+
+        getAddressButton.addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    var geocoder = new google.maps.Geocoder();
+                    var latlng = new google.maps.LatLng(lat, lng);
+
+                    // Get location by latlng
+                    geocoder.geocode({
+                        'latLng': latlng
+                    }, function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                console.log(results[0]);
+                                var address = results[0].formatted_address;
+                                searchByLocationField.value = address;
+                            }
+                        }
+                    });
+                });
+            }
+        });
+
+        // Search by location
+        var searchByLocationField = document.getElementById('search_by_location_field');
+        var searchByLocationSubmitButton = document.getElementById('search_by_location_submit_button');
+        var searchByLocationForm = document.getElementById('searchForm');
+
+        searchByLocationField.addEventListener('input', function() {
+            var value = this.value;
+            var hiddenSearch = document.getElementById('hidden_search');
+
+            hiddenSearch.value = value;
+        });
+
+        searchByLocationForm.addEventListener('submit', function() {
+            var value = searchByLocationField.value;
+            var hiddenSearch = document.getElementById('hidden_search');
+
+            hiddenSearch.value = value;
+        });
+    });
+</script>
 @endsection
